@@ -96,9 +96,9 @@ export default {
       cards: [
         { src: 'brian-mike.jpg', name: 'Mike "Brian" Cox', age: 5 },
         { src: 'eddie-mike.jpg', name: 'Mike "Eddie" Redmayne', age: 7 },
-        { src: 'cute-mike.jpg', name: '"Cute" Mike', age: 3 },
-        { src: 'learner-mike.jpg', name: '"Learner" Mike', age: 9 },
-        { src: 'upside-down-mike.jpg', name: '"Upside Down" Mike', age: 8 },
+        { src: 'cute-mike.jpg', name: 'Cute Mike', age: 3 },
+        { src: 'learner-mike.jpg', name: 'Learner Mike', age: 9 },
+        { src: 'upside-down-mike.jpg', name: 'Upside Down Mike', age: 8 },
         { src: 'prison-mike.jpg', name: 'Prison Mike', age: 6 },
         { src: 'school-mike.jpg', name: 'School Mike', age: 3 },
         { src: 'smooth-mike.jpg', name: 'Smooth Mike', age: 7 },
