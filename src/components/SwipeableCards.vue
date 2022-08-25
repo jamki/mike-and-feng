@@ -50,10 +50,14 @@
       </div>
     </div>
     <div
-      v-if="index + 2 < cards.length"
       class="rounded-borders card card--three fixed fixed--center"
       style="z-index: 1">
-      <div style="height: 100%">
+      <div style="height: 100%" class="restart-card">
+        <h2>Thanks for following along!</h2>
+        <h2>Restart?</h2>
+        <div class="btn btn--skip" @click="reset">
+          <i class="material-icons">refresh</i>
+        </div>
       </div>
     </div>
     <div class="footer fixed">
@@ -90,15 +94,15 @@ export default {
         draggedUp: EVENTS.SKIP
       },
       cards: [
-        { src: 'brian-mike.jpg', name: 'Brian "Mike" Cox', age: 5 },
-        { src: 'eddie-mike.jpg', name: 'Eddie "Mike" Redmayne', age: 7 },
+        { src: 'brian-mike.jpg', name: 'Mike "Brian" Cox', age: 5 },
+        { src: 'eddie-mike.jpg', name: 'Mike "Eddie" Redmayne', age: 7 },
         { src: 'cute-mike.jpg', name: '"Cute" Mike', age: 3 },
         { src: 'learner-mike.jpg', name: '"Learner" Mike', age: 9 },
         { src: 'upside-down-mike.jpg', name: '"Upside Down" Mike', age: 8 },
         { src: 'prison-mike.jpg', name: 'Prison Mike', age: 6 },
         { src: 'school-mike.jpg', name: 'School Mike', age: 3 },
         { src: 'smooth-mike.jpg', name: 'Smooth Mike', age: 7 },
-        { src: 'anti-antisocial-mike.jpg', name: 'Anti antisocial Mike', age: 7 },
+        { src: 'anti-antisocial-mike.jpg', name: 'Anti anti-social Mike', age: 7 },
         { src: 'fike-meng.jpg', name: 'Mike & Feng <3', age: 4 },
       ]
     }
@@ -120,6 +124,9 @@ export default {
     },
     skip() {
       InteractEventBus.$emit(EVENTS.SKIP)
+    },
+    reset() {
+      this.index = 0;
     },
     emitAndNext(event) {
       this.$emit(event, this.index)
@@ -181,6 +188,14 @@ export default {
   to {
     transform: rotate(359deg);
   }
+}
+
+.restart-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
 }
 
 .footer {
@@ -285,6 +300,10 @@ export default {
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
     text-indent: 20px;
+
+    h2 {
+      font-size: 1.2em;
+    }
     span {
       font-weight: normal;
     }
