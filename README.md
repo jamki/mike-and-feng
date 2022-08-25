@@ -1,4 +1,4 @@
-# kittynder
+# Mike's Best Man Speech - based on kittynder
 > Tinder for cats.
 
 Holds the result of my experiments on trying to figure out how to build a tinder-like UI using [vue2-interact](https://vue2-interact.netlify.com).
