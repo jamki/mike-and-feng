@@ -1,9 +1,11 @@
 <template>
   <section class="container">
     <div class="fixed header">
-      <i class="material-icons" @click="index = 0">refresh</i>
-      <span>Kittynder</span>
-      <i class="material-icons">tune</i>
+      <!-- <i class="material-icons" @click="index = 0">refresh</i> -->
+      <!-- <span>Kittynder</span> -->
+      <img class="mct-logo" :src="require(`../assets/images/mct.png`)" width="40" height="60" />
+      
+      <!-- <i class="material-icons">tune</i> -->
     </div>
     <div
       v-if="current"
@@ -27,7 +29,8 @@
             :src="require(`../assets/images/${current.src}`)"
             class="rounded-borders"/>
           <div class="text">
-            <h2>{{current.name}}, <span>{{current.age}}</span></h2>
+            <!-- <h2>{{current.name}}, <span>{{current.age}}</span></h2> -->
+            <h2>{{current.name}}</h2>
           </div>
         </div>
       </Vue2InteractDraggable>
@@ -41,7 +44,8 @@
           :src="require(`../assets/images/${next.src}`)"
           class="rounded-borders"/>
         <div class="text">
-            <h2>{{next.name}}, <span>{{next.age}}</span></h2>
+            <!-- <h2>{{next.name}}, <span>{{next.age}}</span></h2> -->
+            <h2>{{next.name}}</h2>
           </div>
       </div>
     </div>
@@ -56,9 +60,9 @@
       <div class="btn btn--decline" @click="reject">
           <i class="material-icons">close</i>
       </div>
-      <div class="btn btn--skip" @click="skip">
+      <!-- <div class="btn btn--skip" @click="skip">
           <i class="material-icons">call_missed</i>
-      </div>
+      </div> -->
       <div class="btn btn--like" @click="match">
           <i class="material-icons">favorite</i>
       </div>
@@ -86,20 +90,16 @@ export default {
         draggedUp: EVENTS.SKIP
       },
       cards: [
-        { src: 'karina.jpg', name: 'Karina', age: 7 },
-        { src: 'alexander.jpg', name: 'Alexander', age: 5 },
-        { src: 'bona.jpg', name: 'Bona', age: 3 },
-        { src: 'ichi.jpg', name: 'Ichi', age: 7 },
-        { src: 'lloyd.jpg', name: 'Lloyd', age: 4 },
-        { src: 'luiza.jpg', name: 'Luiza', age: 9 },
-        { src: 'max.jpg', name: 'Max', age: 6 },
-        { src: 'mona.jpg', name: 'Mona', age: 3 },
-        { src: 'naru.jpg', name: 'Naru', age: 7 },
-        { src: 'ramdan.jpg', name: 'Ramdan', age: 8 },
-        { src: 'rikki-austin.jpg', name: 'Rikki Austin', age: 3 },
-        { src: 'tucker.jpg', name: 'Tucker', age: 9 },
-        { src: 'uriel.jpg', name: 'Uriel', age: 6 },
-        { src: 'zoe.jpg', name: 'Zoe', age: 2 },
+        { src: 'brian-mike.jpg', name: 'Brian "Mike" Cox', age: 5 },
+        { src: 'eddie-mike.jpg', name: 'Eddie "Mike" Redmayne', age: 7 },
+        { src: 'cute-mike.jpg', name: '"Cute" Mike', age: 3 },
+        { src: 'learner-mike.jpg', name: '"Learner" Mike', age: 9 },
+        { src: 'upside-down-mike.jpg', name: '"Upside Down" Mike', age: 8 },
+        { src: 'prison-mike.jpg', name: 'Prison Mike', age: 6 },
+        { src: 'school-mike.jpg', name: 'School Mike', age: 3 },
+        { src: 'smooth-mike.jpg', name: 'Smooth Mike', age: 7 },
+        { src: 'anti-antisocial-mike.jpg', name: 'Anti antisocial Mike', age: 7 },
+        { src: 'fike-meng.jpg', name: 'Mike & Feng <3', age: 4 },
       ]
     }
   },
@@ -150,12 +150,12 @@ export default {
   text-align: center;
   font-style: italic;
   font-family: 'Engagement', cursive;
-  background: #f953c6;
-  background: -webkit-linear-gradient(to top, #b91d73, #f953c6);
-  background: linear-gradient(to top, #b91d73, #f953c6);
+  background: #5388f9;
+  background: -webkit-linear-gradient(to top, #0a0767, #5388f9);
+  background: linear-gradient(to top, #0a0767, #5388f9);
   clip-path: polygon(0 1%, 100% 0%, 100% 76%, 0 89%);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   span {
     display: block;
     font-size: 4rem;
@@ -164,6 +164,22 @@ export default {
   }
   i {
     padding: 24px;
+  }
+}
+
+.mct-logo {
+  animation: rotation 4s infinite linear;
+  margin-top: 10px;
+  width: 60px;
+  height: 80px;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }
 
