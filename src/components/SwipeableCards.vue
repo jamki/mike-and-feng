@@ -1,11 +1,11 @@
 <template>
   <section class="container">
     <div class="fixed header">
-      <!-- <i class="material-icons" @click="index = 0">refresh</i> -->
+      <i class="material-icons" @click="index = 0">refresh</i>
       <!-- <span>Kittynder</span> -->
       <img class="mct-logo" :src="require(`../assets/images/mct.png`)" width="40" height="60" />
       
-      <!-- <i class="material-icons">tune</i> -->
+      <i class="material-icons" @click="match">favorite</i>
     </div>
     <div
       v-if="current"
@@ -16,8 +16,8 @@
         v-if="isVisible"
         :interact-out-of-sight-x-coordinate="500"
         :interact-max-rotation="15"
-        :interact-x-threshold="200"
-        :interact-y-threshold="200"
+        :interact-x-threshold="100"
+        :interact-y-threshold="100"
         :interact-event-bus-events="interactEventBus"
         interact-block-drag-down
         @draggedRight="emitAndNext('match')"
@@ -55,7 +55,7 @@
       <div style="height: 100%" class="restart-card">
         <h2>Thanks for following along!</h2>
         <h2>Restart?</h2>
-        <div class="btn btn--skip" @click="reset">
+        <div class="btn btn--skip" @click="index = 0">
           <i class="material-icons">refresh</i>
         </div>
       </div>
@@ -125,9 +125,6 @@ export default {
     skip() {
       InteractEventBus.$emit(EVENTS.SKIP)
     },
-    reset() {
-      this.index = 0;
-    },
     emitAndNext(event) {
       this.$emit(event, this.index)
       setTimeout(() => this.isVisible = false, 200)
@@ -162,7 +159,7 @@ export default {
   background: linear-gradient(to top, #0a0767, #5388f9);
   clip-path: polygon(0 1%, 100% 0%, 100% 76%, 0 89%);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   span {
     display: block;
     font-size: 4rem;
