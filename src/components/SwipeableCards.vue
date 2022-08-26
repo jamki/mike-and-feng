@@ -14,12 +14,13 @@
       :class="{ 'transition': isVisible }">
       <Vue2InteractDraggable
         v-if="isVisible"
-        :interact-out-of-sight-x-coordinate="500"
+        :interact-out-of-sight-x-coordinate="300"
         :interact-max-rotation="15"
         :interact-x-threshold="100"
         :interact-y-threshold="100"
         :interact-event-bus-events="interactEventBus"
-        interact-block-drag-down
+        interact-lock-y-axis="true"
+        interact-block-drag-down="true"
         @draggedRight="emitAndNext('match')"
         @draggedLeft="emitAndNext('reject')"
         @draggedUp="emitAndNext('skip')"
